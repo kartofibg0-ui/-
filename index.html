@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Çok Yakında...</title>
+<title>Coming Soon...</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -24,20 +28,62 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: "Poppins", sans-serif;
+    color: #fff;
+}
+
+.background {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(
+        ellipse at center,
+        black 0%,
+        transparent 75%
+    );
+    -webkit-mask-image: radial-gradient(
+        ellipse at center,
+        black 0%,
+        transparent 75%
+    );
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    animation: appear .8s ease-out;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h1 {
+    font-family: "Poppins", sans-serif;
+    font-size: clamp(38px, 7vw, 76px);
+    font-weight: 500;
+    letter-spacing: -3px;
+    line-height: 1.1;
     color: #fff;
-    font-family: Arial, Helvetica, sans-serif;
-    font-size: clamp(32px, 7vw, 90px);
-    font-weight: 700;
-    letter-spacing: 3px;
-    text-align: center;
 }
 
 #dots {
     display: inline-block;
-    width: 1.5em;
+    width: 1.1em;
     text-align: left;
 }
 </style>
@@ -45,9 +91,13 @@ h1 {
 
 <body>
 
-<h1>
-    ÇOK YAKINDA<span id="dots">.</span>
-</h1>
+<div class="background"></div>
+
+<div class="content">
+    <h1>
+        Coming Soon<span id="dots">.</span>
+    </h1>
+</div>
 
 <script>
 const dots = document.getElementById("dots");
