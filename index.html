@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +17,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -41,8 +41,16 @@ body {
         linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
     background-size: 64px 64px;
-    mask-image: radial-gradient(ellipse at center, black 0%, transparent 75%);
-    -webkit-mask-image: radial-gradient(ellipse at center, black 0%, transparent 75%);
+    mask-image: radial-gradient(
+        ellipse at center,
+        black 0%,
+        transparent 75%
+    );
+    -webkit-mask-image: radial-gradient(
+        ellipse at center,
+        black 0%,
+        transparent 75%
+    );
 }
 
 .content {
@@ -51,11 +59,21 @@ body {
     width: min(600px, 90%);
     text-align: center;
     padding: 20px;
+    opacity: 0;
+    transform: translateY(18px);
+    animation: intro 1s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+@keyframes intro {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h1 {
-    display: inline-flex;
-    align-items: baseline;
+    display: inline-block;
+    white-space: nowrap;
     font-size: clamp(38px, 7vw, 76px);
     font-weight: 600;
     letter-spacing: -3px;
@@ -65,7 +83,7 @@ h1 {
 
 #dots {
     display: inline-block;
-    width: 1.15em;
+    width: 1.1em;
     text-align: left;
     letter-spacing: 0;
 }
@@ -96,7 +114,9 @@ input {
     color: #fff;
     font-family: "Poppins", sans-serif;
     font-size: 13px;
-    transition: border-color 0.25s ease, background-color 0.25s ease;
+    transition:
+        border-color .25s ease,
+        background-color .25s ease;
 }
 
 input::placeholder {
@@ -119,7 +139,10 @@ button {
     font-size: 13px;
     font-weight: 500;
     cursor: pointer;
-    transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+    transition:
+        background-color .3s ease,
+        border-color .3s ease,
+        transform .2s ease;
 }
 
 button:hover {
@@ -128,7 +151,7 @@ button:hover {
 }
 
 button:active {
-    transform: scale(0.98);
+    transform: scale(.98);
 }
 
 @media (max-width: 500px) {
@@ -154,10 +177,7 @@ button:active {
 <div class="background"></div>
 
 <div class="content">
-
-    <h1>
-        <span>Coming Soon</span><span id="dots">.</span>
-    </h1>
+    <h1>Coming Soon<span id="dots">.</span></h1>
 
     <p class="subtitle">
         Get notified early by leaving your email.
@@ -174,7 +194,6 @@ button:active {
             Notify Me
         </button>
     </form>
-
 </div>
 
 <script>
@@ -190,4 +209,3 @@ setInterval(() => {
 
 </body>
 </html>
-```
